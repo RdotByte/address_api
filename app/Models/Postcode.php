@@ -36,7 +36,7 @@ class Postcode extends Model
         'quality' => 'integer',
     ];
 
-    public static array $API_FIELDS = ['postcode', 'postcode_trimmed', 'latitude', 'longitude'];
+    public static array $API_FIELDS = ['postcode', 'postcode_trimmed', 'latitude', 'longitude', 'incode', 'outcode'];
 
     public static function formatPostcode($postcode)
     {
