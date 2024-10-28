@@ -136,10 +136,6 @@ curl -X GET \
 
 All responses are cached for 24 hours (1440 minutes) to improve performance. The cache is automatically invalidated and refreshed when making new requests.
 
-## Rate Limiting
-
-The API implements Laravel's rate limiting. Default limits and specific quotas will be provided by your API administrator.
-
 ## Code Examples
 
 ### PHP (Guzzle)
@@ -249,6 +245,10 @@ php artisan sanctum:revoke-token --token=123
     - Implement proper logging
     - Handle rate limiting gracefully
 
-## Support
+# Application Setup
 
-For technical support or to report security issues, please contact the API administrator.
+1. Make sure you are using MySql as the database
+2. Run the migrations: `php artisan migrate:fresh`
+3. Import the data: `php artisan postcodes:update`
+4. I have configured a schedule to only run `php artisan postcodes:update` in February, May, August, and November, however for this to work you will need to configure the scheduler [Docs Link](https://laravel.com/docs/11.x/scheduling#running-the-scheduler)
+5. Please check Laravels deployment [Docs](https://laravel.com/docs/11.x/deployment) to guidance on how to deploy the application for production.
